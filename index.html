@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Творческий круг</title>
+    <script>
+        let a = 5;
+        async function CheckAuthor() {
+            
+        }
+        async function SendMessages() {
+            let authorElement = document.getElementById("author");
+            let author = authorElement.value;
+            let messageElement = document.getElementById("message");
+            let message = messageElement.value;
+
+            let response = await fetch(
+                "http://127.0.0.1/students",
+                {
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        "text": message,
+                        "author": author
+                    })
+                }
+            )
+            console.log(response);
+        }
+
+
+        async function GetMessages(author) {
+            let response = await fetch("http://127.0.0.1/students");
+            if(response.status == 200) {
+                console.log(response);
+                let response1 = await response.json();
+                console.log(response1.messages)
+            }
+                
+            else{
+                console.log("none");
+            }
+           
+
+            function drawMessage(message) {
+                let message_list = document.getElementById("message_list")
+                let li = document.createElement('li');
+                li.setAttribute('class','message');
+                li.innerText = message.author + ": " + message.text + " (" + message.time + ")";
+                message_list.appendChild(li);
+            }
+
+
+            let message_list = document.getElementById("message_list")
+            message_list.innerHTML = '';
+            response1.messages.forEach(drawMessage);
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        
+        <img src="1702131202_sportishka-com-p-krasivie-mesta-v-prirode-oboi-2.jpg" alt="Картинка 1" width="100%">
+        <p style="font-size:50px;  font-family: Arial, sans-serif;font-weight: bold; position: absolute; top: 3%; left: 30%; color: rgb(0, 0, 0);">Ярмарка Мастер-классов</p>
+        <p style="font-size:60px;font-family: Arial, sans-serif; position: absolute; top: 8%; left: 25%; color: rgb(233, 11, 174);">Мероприятие Творческий круг</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 20%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 25%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 30%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 35%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 40%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 45%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+           
+
+
+    </div>
+    <div>
+        
+        <img src="gorod-doma-sumerki.jpg" alt="Картинка 1" width="100%">
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 120%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 125%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 130%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 135%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 140%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 145%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        
+        
+        
+    </div>
+    <div>
+        
+        <img src="leo_0.jpg" alt="Картинка 1" width="100%">
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 220%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 225%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 230%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 235%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 240%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 245%; left: 8%; color: rgb(77, 255, 0);">Место для медиа текста</p>
+        
+    </div>
+    <div>
+        
+        <img src="77e625351caddf8789ba29de938c193b.jpg" alt="Картинка 1" width="100%">
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 320%; left: 8%; color: rgb(15, 0, 102);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 325%; left: 8%; color: rgb(15, 0, 102);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 330%; left: 8%; color: rgb(15, 0, 102);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 335%; left: 8%; color: rgb(15, 0, 102);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 340%; left: 8%; color: rgb(15, 0, 102);">Место для медиа текста</p>
+        <p style="font-size:30px;font-family: Arial, sans-serif; position: absolute; top: 345%; left: 8%; color: rgb(15, 0, 102);">Место для медиа текста</p>
+    </div>
+    
+</body>
+
+</html>
